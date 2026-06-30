@@ -1,13 +1,14 @@
 """
-HR Portal - Full Stack Web Application
-Main Entry Point
+HR Portal - Production Entry Point (Azure App Service)
 """
 
 import os
 from app import create_app
 
-app = create_app(os.environ.get("FLASK_ENV", "development"))
+# Create Flask app using factory
+app = create_app(os.environ.get("FLASK_ENV", "production"))
 
+# IMPORTANT: Azure uses this "app" object via gunicorn
 if __name__ == "__main__":
     print("=" * 70)
     print("  HR Portal - Full Stack Web Application")
